@@ -1,0 +1,44 @@
+<!doctype HTML>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>AR_I AR for Education</title>
+  <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+  <script src="https://raw.githack.com/jeromeetienne/AR.js/1.7.7/aframe/build/aframe-ar.js"></script>
+https://cdn.rawgit.com/donmccurdy/aframe-extras/v6.0.0/dist/aframe-extras.min.js
+  <style>
+      body {
+          margin: 0;
+          padding: 0;
+        }
+        #map {
+          display: none;
+        }
+  </style>
+</head>
+<body style="margin : 0px; overflow: hidden;">
+<a-scene embedded arjs="trackingMethod:best;">
+    <a-assets>
+      <video id="1" src="https://ar-i-enterprise.github.io/vide/1.mp4"></video>
+          <!-- model https://sketchfab.com/3d-models/low-poly-character-rpg-kit-animation-904c06fc53574534a3aace8dba79f796 -->
+      <a-asset-item id="man1"  src="https://ar-i-enterprise.github.io/web/scene.gltf"></a-asset-item>
+      <a-asset-item id="man2"  src="https://ar-i-enterprise.github.io/torrigate/scene.gltf"></a-asset-item>
+    </a-assets>
+  <a-entity light="type:directional; castShadow:true;" position="1 1 1"></a-entity>
+  <a-marker-camera preset="hiro">
+    <a-sphere animation-mixer material="shader: flat; color: red" src="https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/space/earth_atmos_4096.jpg" id="sphere" position="0 0.5 0" scale="0.4 0.4 0.4"  >
+      <a-animation attribute="rotation"
+                   dur="10000"
+                   to="0 360 0"
+                   repeat="indefinite">
+      </a-animation>
+  </a-sphere>
+         <a-entity  gltf-model="#man1" rotation="0 90 0"  scale="0.08 0.08 0.08">
+         </a-entity>
+         <a-entity>
+             <!--a-video position="0 0.5 0"src="https://ar-i-enterprise.github.io/vide/1.mp4" rotation="0 90 0" width="1" height="1" autoplay="true" loop="true" ></a-video-->
+         </a-entity>
+  </a-marker-camera>
+</a-scene>
+</html>
